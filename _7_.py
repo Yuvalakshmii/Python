@@ -1,82 +1,108 @@
 
-#in a supermarket there are two sections s1 and s2 the sales details of item1 to item_n of section1
-and item1 to itemp
 
-L1=[]
-L2=[]
-N=int(input())
-M=int(input())
-for i in range(N):
-    L1.append(input())
-for i in range(M):
-    L2.append(input())
-L1.extend(L2)
-L1.sort()
-print(L1)
+#Tuples
+l1=[1,2,3]   #lists are mutable 
+t=(10,20,30) #but tuples are immutable
+t=(50,)      #one element should be followed by a comma
+l1=list(t)   #typecasting tuple to list
+t1=tuple(l1) #typecating list to tuple
+sorted(t)    #will sort the tuple and return a list
+#concatenantion
+#repetition
+t.index(2)   #indexing
+t.count(3)   #counting number of elements
 
-L1.split(",")
-
-
-#sunny and johnny together have m dollars they want to spend on ice cream.
-#the parlor offers n flavors aand they want to choose two flavors so that they end up spending
-#the whole amount.
-#you are given the cost of these flavors the cost of the ith flavor is denoted by ci
-#you have to display the indices of the two flacors whose sum
-
-N=[30,40,50,20,60]
-n=len(N)
-M=int(input())
-for i in range(n-1):
-    for j in range((i+1),n):
-        if N[i]+N[j]==M:
-            print(i)
-            print(j)
-
-#list comprehension
-L=[input() for i in range(3)]
-print(L)
-
-#two dimentional matrix
-
-M1=[[1,2,3],[4,5,6],[7,8,9]]
-r=int(input())
-c=int(input())
-list1=[[int(input()) for j in range(c)]for i in range(r)]
-list2=[[int(input()) for j in range(c)]for i in range(r)]
-print(list1)
-print(list2)
-
-summat=[[list1[i][j]+list2[i][j] for j in range(c)]for i in range(r)]
-print(summat)
-for x in summat:
-    print(x)
+t=(20,20.3,"aa",["aaa","ss"])
+t[3][1]      #returns ss
 
 
-#givrn a positions of coins of player1 and player2 in a 3x3 tic tac toc board write a program to ,
-#determine if the board position is a solution and if so identify the winner of
-#the game. in a tic tac toc problem,if the coins in a row or column or along a
-#diagonal is of the same player then he has won the game .Assume
 
-board=[[int(input()) for j in range(3)]for i in range(3)]
 
-for i in range(3):
-    if(board[i][0]==1 and board[i][1]==1 and  board[i][2]==1):
-        print("player 1 is the winner")
-    elif(board[i][1]==2 and board[i][2]==2 and  board[i][0]==2):
-        print("player 2 is the winner")
-        
-for j in range(3):
-    if(board[1][j]==1 and board[2][j]==1 and  board[0][j]==1):
-        print("player 1 is the winner")
-    elif(board[1][j]==2 and board[2][j]==2 and  board[0][j]==2):
-        print("player 2 is the winner")
-        
-if(board[0][0]==1 and board[1][1]==1 and  board[2][2]==1):
-    print("player 1 is the winner")
-elif(board[0][0]==2 and board[1][1]==2 and  board[2][2]==2):
-    print("player 2 is the winner")
+#basic tuple input reading
+
+n=int(input())
+a=()
+t2=()
+for i in range(n):
+    a=a+(int(input()),)
+print(a)
+for x in a:
+    t2=t2+(x*x,)
+print(t2)
+print(sorted(t2))
+
+
+#hospital problem (the test results must not be altered)
+#we use tuple for sensitive content like this
+
+a=()
+for i in range(5):
+    a=a+(float(input()),)
+
+if a[0]<20 or a[0]>30:
+    print("not normal")
+else:
+    print("normal")
     
-if(board[2][0]==1 and board[1][1]==1 and  board[0][2]==1):
-    print("player 1 is the winner")
-elif(board[2][0]==2 and board[1][1]==2 and  board[0][2]==2):
-    print("player 2 is the winner")
+if a[1]<35.5 or a[1]>40:
+    print("not normal")
+else:
+    print("normal")
+    
+if a[2]<12 or a[2]>15:
+    print("not normal")
+else:
+    print("normal")
+    
+if a[3]<120 or a[3]>150:
+    print("not normal")
+else:
+    print("normal")
+    
+if a[4]<80 or a[4]>120:
+    print("not normal")
+else:
+    print("normal")
+    
+ 
+#solution
+
+a=()
+minv=(20,35.5,12,120,80)
+maxv=(30,40,15,150,120)
+for i in range(5):
+    a=a+(input(),)
+for i in range(0,5):
+    if(a[i]=="N"):
+        print("test not taken")
+        continue
+    if(float(a[i])>minv[i] and float(a[i])<maxv[i]):
+        print("normal")
+    else:
+        print("abnormal")
+        
+
+
+#sets
+
+#an unordered collection of unique and immutable object that supports operations
+#operations
+union         |
+intersection  &
+difference    -
+s={1,2,3,4,5}
+s=set()   #empty set
+d={}      #dictionary
+s.add()   #adding element in set
+
+#reading values for set
+n=int(input())
+s=set()
+for i in range(n):
+    val=int(input())
+    #s.add(val)
+    s=s|{val}
+print(s)
+print(len(s))
+
+#indexing and slicing is not permitted in set
